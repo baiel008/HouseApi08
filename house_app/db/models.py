@@ -33,7 +33,7 @@ class UserProfile(Base):
     email: Mapped[str] = mapped_column(String(32), unique=True)
     password: Mapped[str] = mapped_column(String, nullable=False)
     role: Mapped[StatusChoices] = mapped_column(Enum(StatusChoices), default=StatusChoices.buyer)
-    phone_number: Mapped[Optional[str]] = mapped_column(String(12), nullable=True)
+    phone_number: Mapped[Optional[str]] = mapped_column(String(64), nullable=True)
     sellers: Mapped[List['Property']] = relationship('Property', back_populates='seller',
                                                      cascade='all, delete-orphan')
     review_given: Mapped[List['Review']] = relationship('Review', back_populates='buyer',

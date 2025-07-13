@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from house_app.api import property, auth, review, social_auth
+from house_app.api import property, auth, review, social_auth, predict
 import uvicorn
 from starlette.middleware.sessions import SessionMiddleware
 from house_app.config import SECRET_KEY
@@ -10,6 +10,7 @@ house_app.include_router(auth.auth_router)
 house_app.include_router(social_auth.social_router)
 house_app.include_router(property.property_router)
 house_app.include_router(review.review_router)
+house_app.include_router(predict.predict_router)
 house_app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 setup_admin(house_app)
 

@@ -101,3 +101,13 @@ class ReviewCreateSchema(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class HousePredictSchema(BaseModel):
+    GrLivArea: int
+    YearBuilt: int
+    GarageCars: int
+    TotalBsmtSF: int
+    FullBath: int
+    OverallQual: int
+    Neighborhood: str
